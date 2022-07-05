@@ -219,15 +219,15 @@ def build_dhis2_dag(definition):
 
     download >> transform
 
-    create_report_operators(
-        parent_tasks=[transform],
-        headline="DHIS2 Extraction ({{ dag.dag_id }})",
-        info="This OpenHexa pipelines extracts data from a DHIS2 instance.",
-        output_dir="{{ dag_run.conf['output_dir'] }}",
-        email_address=definition["report_email"],
-        credentials_url=definition["credentials_url"],
-        token=definition["token"],
-    )
+    # create_report_operators(
+    #     parent_tasks=[transform],
+    #     headline="DHIS2 Extraction ({{ dag.dag_id }})",
+    #     info="This OpenHexa pipelines extracts data from a DHIS2 instance.",
+    #     output_dir="{{ dag_run.conf['output_dir'] }}",
+    #     email_address=definition["report_email"],
+    #     credentials_url=definition["credentials_url"],
+    #     token=definition["token"],
+    # )
     return dag
 
 
